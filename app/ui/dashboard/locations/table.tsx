@@ -1,6 +1,7 @@
 import {
   UpdateLocation,
   DeleteLocation,
+  CreateLocationQRCodeButton,
 } from '@/app/ui/dashboard/locations/buttons';
 import { fetchFilteredLocations } from '@/app/lib/data';
 
@@ -57,6 +58,7 @@ export default async function LocationsTable({
                   <td className='whitespace-nowrap py-3 pl-6 pr-3'>
                     <div className='flex justify-end gap-3'>
                       {/* <UpdateLocation name={location.name} /> */}
+                      <CreateLocationQRCodeButton name={location.name} />
                       <DeleteLocation name={location.name} />
                     </div>
                   </td>

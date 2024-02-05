@@ -7,7 +7,7 @@ import { sql } from '@vercel/postgres';
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-
+const QRCode = require('qrcode');
 export async function workerSignIn(
   prevState: string | undefined,
   formData: FormData
@@ -169,3 +169,4 @@ export async function deleteWorker(id: string) {
 // export async function updateLocation(formData:FormData) {
 
 // }
+

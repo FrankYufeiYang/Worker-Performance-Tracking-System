@@ -1,4 +1,3 @@
-import next from 'next';
 import type { NextAuthConfig } from 'next-auth';
 declare module 'next-auth' {
   interface User {
