@@ -5,7 +5,10 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Sign In System',
+  title: {
+    template: '%s | Digital Sign In System',
+    default: ' Digital Sign In System',
+  },
   description: 'Created By Yufei Yang',
 };
 
