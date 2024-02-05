@@ -49,7 +49,7 @@ export const { auth, signIn, signOut } = NextAuth({
             const worker = await getWorkerId(email);
             if (!worker) return null;
             else {
-              return worker;
+              return { role: 'worker', ...worker};
             }
           }
           if (parsedCredentials.data.role === 'manager') {

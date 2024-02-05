@@ -6,7 +6,6 @@ export default async function Page({ params }: { params: { id: string } }) {
   const session = await auth();
   const name = session?.user?.name || 'N/A';
   console.log(session);
-  
 
   return (
     <main>

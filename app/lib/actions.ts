@@ -63,18 +63,16 @@ export async function workerClockIn(formData: FormData) {
     name: formData.get('name'),
     location: formData.get('location'),
   });
-  const date = new Date().toISOString().split('T')[0];
-
   try {
     await sql`
-      INSERT INTO check_in_data (date, name, location)
-      VALUES (${date}, ${name}, ${location})
+      INSERT INTO reports (name, location)
+      VALUES ( ${name}, ${location})
     `;
   } catch (error) {
     console.log(error);
 
     return {
-      message: 'Database Error: Failed to Create Invoice.',
+      message: 'Database Error: Failed to Create Report.',
     };
   }
   // potentially close the current page
