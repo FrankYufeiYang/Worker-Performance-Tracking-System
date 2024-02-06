@@ -46,22 +46,26 @@ export const { auth, signIn, signOut } = NextAuth({
           if (parsedCredentials.data.role === 'worker') {
             const { email, token } = parsedCredentials.data;
             if (token !== 'lab1') return null;
-            const worker = await getWorkerId(email);
-            if (!worker) return null;
-            else {
-              return { role: 'worker', ...worker};
+            if (email) {
+              const worker = await getWorkerId(email);
+              if (!worker) return null;
+              else {
+                return { role: 'worker', ...worker };
+              }
             }
+            return null;
           }
           if (parsedCredentials.data.role === 'manager') {
             const { username, password } = parsedCredentials.data;
-            const user = await getUser(username);
-            if (!user) return null;
-            const passwordsMatch = await bcrypt.compare(
-              password,
-              user.password
-            );
-
-            if (passwordsMatch) return { role: 'manager', ...user };
+            if (username && password) {
+              const user = await getUser(username);
+              if (!user) return null;
+              const passwordsMatch = await bcrypt.compare(
+                password,
+                user.password
+              );
+              if (passwordsMatch) return { role: 'manager', ...user };
+            }
           }
         }
 
