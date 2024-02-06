@@ -7,7 +7,6 @@ import { sql } from '@vercel/postgres';
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-const QRCode = require('qrcode');
 export async function workerSignIn(
   prevState: string | undefined,
   formData: FormData
@@ -69,13 +68,9 @@ export async function workerClockIn(formData: FormData) {
       VALUES ( ${name}, ${location})
     `;
   } catch (error) {
-    console.log(error);
-
-    return {
-      message: 'Database Error: Failed to Create Report.',
-    };
+    throw error;
   }
-  // potentially close the current page
+  redirect('/location');
 }
 
 const CreateLocationFormSchema = z.object({
@@ -167,4 +162,3 @@ export async function deleteWorker(id: string) {
 // export async function updateLocation(formData:FormData) {
 
 // }
-
