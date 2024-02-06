@@ -15,7 +15,7 @@ export default function Page({ params }: { params: { name: string } }) {
       console.log(qrCode);
       setQRSrc(qrCode);
     });
-  }, []);
+  }, [pathname]);
   console.log(pathname);
   return (
     <main>
