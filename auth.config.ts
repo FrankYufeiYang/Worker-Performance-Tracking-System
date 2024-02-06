@@ -1,4 +1,5 @@
-import type { NextAuthConfig } from 'next-auth';
+import type { NextAuthConfig, Session } from 'next-auth';
+import { JWT } from 'next-auth/jwt';
 declare module 'next-auth' {
   interface User {
     role: string;
@@ -58,15 +59,13 @@ export const authConfig = {
             new URL('/location/invalid-location', nextUrl)
           );
         }
-        if(isManager){
-           if (isOnDashboard) return true;
-           let callbackUrl = nextUrl.searchParams.get('callbackUrl');
-           if (callbackUrl) {
-             return Response.redirect(callbackUrl);
-           }
-           return Response.redirect(
-             new URL('/dashboard', nextUrl)
-           );
+        if (isManager) {
+          if (isOnDashboard) return true;
+          let callbackUrl = nextUrl.searchParams.get('callbackUrl');
+          if (callbackUrl) {
+            return Response.redirect(callbackUrl);
+          }
+          return Response.redirect(new URL('/dashboard', nextUrl));
         }
       } else {
         if (isOnLocationPage) return false;
@@ -82,9 +81,11 @@ export const authConfig = {
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session, token }: { session: Session; token?: JWT }) {
       // Send properties to the client, like an access_token and user id from a provider.
-      session.user.role = token.role;
+      if (token) {
+        session.user.role = token.role+"";
+      }
       return session;
     },
   },

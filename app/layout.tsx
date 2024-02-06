@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Digital Sign In System',
-    default: ' Digital Sign In System',
+    template: '%s | Digital Sign In Sheet',
+    default: 'Digital Sign In Sheet',
   },
   description: 'Created By Yufei Yang',
 };
