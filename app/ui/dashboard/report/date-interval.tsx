@@ -26,7 +26,7 @@ export default function DateInterval({}: {}) {
   }, 1200);
 
   return (
-    <div className='w-full md:w-4/6 flex flex-col mt-4'>
+    <div className='w-full md:w-1/2 xl:w-1/3 flex flex-col mt-4'>
       <label htmlFor='startDate'>Start Date:</label>
       <input
         id='startDate'
