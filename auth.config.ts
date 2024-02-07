@@ -24,30 +24,9 @@ export const authConfig = {
       const isManager = auth?.user?.role === 'manager';
       const isOnLocationPage = nextUrl.pathname.startsWith('/location');
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
-      // if (nextUrl.pathname.startsWith('/login')) return true;
-      // if (isOnLocationPage) {
-      //   if (isLoggedIn && isWorker) {
-      //     auth.user.role = 'worker';
-      //     return true;
-      //   }
-      //   return false;
-      // } else if (isLoggedIn && isWorker) {
-      //   let callbackUrl = nextUrl.searchParams.get('callbackUrl');
-      //   if (callbackUrl) {
-      //     return Response.redirect(callbackUrl);
-      //   }
-      //   return Response.redirect(
-      //     new URL('/location/invalid-location', nextUrl)
-      //   );
-      // }
-      // if (isOnDashboard) {
-      //   if (isLoggedIn && isManager) {
-      //     return true;
-      //   }
-      //   return Response.redirect(new URL('/login/manager', nextUrl));
-      // } else if (isLoggedIn && isManager) {
-      //   return Response.redirect(new URL('/dashboard/locations', nextUrl));
-      // }
+      if (nextUrl.pathname.startsWith('/google958439a804a1db55')) {
+        return true
+      }
       if (isLoggedIn) {
         if (isWorker) {
           if (isOnLocationPage) return true;
@@ -84,7 +63,7 @@ export const authConfig = {
     async session({ session, token }: { session: Session; token?: JWT }) {
       // Send properties to the client, like an access_token and user id from a provider.
       if (token) {
-        session.user.role = token.role+"";
+        session.user.role = token.role + '';
       }
       return session;
     },
