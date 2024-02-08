@@ -11,7 +11,6 @@ declare module 'next-auth' {
 export const authConfig = {
   pages: {
     signIn: '/login',
-    // signOut: '/login',
   },
   session: {
     strategy: 'jwt',
@@ -25,7 +24,10 @@ export const authConfig = {
       const isOnLocationPage = nextUrl.pathname.startsWith('/location');
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
       if (nextUrl.pathname.startsWith('/google958439a804a1db55')) {
-        return true
+        return true;
+      }
+      if (nextUrl.pathname === '/') {
+        return true;
       }
       if (isLoggedIn) {
         if (isWorker) {

@@ -13,5 +13,5 @@ export default function LoginPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Sign In to Clock In',
+  title: 'Sign In to scan the QR code',
 };

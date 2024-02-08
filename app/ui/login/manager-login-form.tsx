@@ -34,6 +34,7 @@ export default function LoginForm() {
                 type='text'
                 name='username'
                 placeholder='Enter your Username'
+                defaultValue={'User'}
                 required
               />
               <AtSymbolIcon className='pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900' />
@@ -55,6 +56,7 @@ export default function LoginForm() {
                 placeholder='Enter password'
                 required
                 minLength={6}
+                defaultValue={'123456'}
               />
               <KeyIcon className='pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900' />
             </div>

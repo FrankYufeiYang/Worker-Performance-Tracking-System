@@ -6,10 +6,11 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Digital Sign In Sheet',
-    default: 'Digital Sign In Sheet',
+    template: '%s | Worker Performance Tracking System',
+    default: 'Worker Performance Tracking System',
   },
-  description: 'Created By Yufei Yang',
+  description:
+    'A Web App that enables efficient worker performance tracking via QR code-based sign-in.',
 };
 
 export default function RootLayout({

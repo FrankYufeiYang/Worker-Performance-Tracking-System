@@ -16,8 +16,6 @@
   }
 }
 
-
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -28,7 +26,8 @@
   body * {
     visibility: hidden;
   }
-  #printableArea, #printableArea * {
+  #printableArea,
+  #printableArea * {
     visibility: visible;
   }
   #printableArea {
@@ -36,4 +35,11 @@
     left: 0;
     top: 0;
   }
+}
+
+.arrow {
+  transition: transform 0.2s ease-in-out;
+}
+.arrow-container:hover .arrow {
+  transform: translateX(10px); /* Bounce to the right */
 }
