@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#Worker Performance Tracking System
 
-## Getting Started
+## What is this?
 
-First, run the development server:
+This is a QR code based performance tracking system that allows worker to fastly sign in at different buildings/sites/rooms, and it enables users to generate detailed reports based on the sign in records.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<img src="readme\qr-code.png" alt="QR code" width="800"/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What is the purpose?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Service companies has clock in system for their employees, but they are struggling to present their clients detailed reports that answer these questions:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Was classroom A/first floor bathroom/building c served?
+- What kind of service was performed?
+- Who performed the service?
+- When was the service performed?
+- ...
 
-## Learn More
+With this system:
 
-To learn more about Next.js, take a look at the following resources:
+- Worker can scan the QR code to instantly sign in at different locations
+- Managers can easily generate detailed reports by specific location, personnel, or date.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Navigate to [the Demo Version](https://worker-performance-tracking-system.vercel.app/login/manager) to try
 
-## Deploy on Vercel
+You can login as a manager and print out QRcode for a location and scan it with your phone
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Log in as worker on your phone with this email: example@example123.abc
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📖 Usage
+
+- Use ***Report*** page to generate reports
+- Use ***Location*** page to manage locations and print out QR codes
+- Use ***Worker*** page to manage workers
