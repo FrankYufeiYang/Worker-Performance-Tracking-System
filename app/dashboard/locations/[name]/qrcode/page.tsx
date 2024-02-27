@@ -7,7 +7,7 @@ import { PrinterIcon } from '@heroicons/react/24/solid';
 
 export default function Page({ params }: { params: { name: string } }) {
   const name = params.name;
-  const token = 'lab1';
+  const token = 'hnl';
   const pathname = `${window.location.origin}/location/${name}`;
   const [qrSrc, setQRSrc] = useState('');
   useEffect(() => {

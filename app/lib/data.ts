@@ -1,7 +1,7 @@
 import { sql } from '@vercel/postgres';
 import { Location, Report, Worker } from './definitions';
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 15;
 export async function fetchFilteredLocations(
   query: string,
   currentPage: number

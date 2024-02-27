@@ -10,7 +10,7 @@ declare module 'next-auth' {
 }
 export const authConfig = {
   pages: {
-    signIn: '/login',
+    signIn: '/',
   },
   session: {
     strategy: 'jwt',
@@ -24,9 +24,6 @@ export const authConfig = {
       const isOnLocationPage = nextUrl.pathname.startsWith('/location');
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
       if (nextUrl.pathname.startsWith('/google958439a804a1db55')) {
-        return true;
-      }
-      if (nextUrl.pathname === '/') {
         return true;
       }
       if (isLoggedIn) {
@@ -49,11 +46,9 @@ export const authConfig = {
           return Response.redirect(new URL('/dashboard', nextUrl));
         }
       } else {
-        if (isOnLocationPage) return false;
+        if (isOnLocationPage) return Response.redirect(new URL('/login', nextUrl));
+        if (isOnDashboard) return false;
         if (nextUrl.pathname.startsWith('/login')) return true;
-        else {
-          return Response.redirect(new URL('/login/manager', nextUrl));
-        }
       }
     },
     async jwt({ token, user }) {

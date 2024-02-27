@@ -12,6 +12,7 @@ export type Report = {
   date: Date;
   name: string;
   location: string;
+  id? : number
 };
 export type User = {
   id: string;

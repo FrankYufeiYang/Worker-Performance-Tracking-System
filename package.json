@@ -9,7 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@heroicons/react": "^2.0.18",
+    "@mui/icons-material": "^5.15.11",
+    "@mui/material": "^5.15.11",
+    "@mui/x-data-grid": "^6.19.5",
     "@vercel/postgres": "^0.7.2",
     "bcrypt": "^5.1.1",
     "clsx": "^2.0.0",

@@ -1,10 +1,7 @@
 import { lusitana } from '@/app/ui/fonts';
 import DateInterval from '../ui/dashboard/report/date-interval';
-import { Suspense } from 'react';
-import { InvoicesTableSkeleton } from '../ui/skeletons';
 import ReportsTable from '../ui/dashboard/report/table';
 import { fetchReportsByDateInterval } from '../lib/data';
-import DownloadReport from '../ui/dashboard/report/download-report';
 
 export default async function Page({
   searchParams,
@@ -28,15 +25,12 @@ export default async function Page({
           <DateInterval />
         </div>
         {reports && (
-          <Suspense
-            key={startDate + endDate}
-            fallback={<InvoicesTableSkeleton />}
-          >
-            <div className='flex flex-row-reverse mt-8'>
+          <div key={startDate + endDate}>
+            {/* <div className='flex flex-row-reverse mt-8'>
               <DownloadReport reports={reports} />
-            </div>
+            </div> */}
             <ReportsTable reports={reports} />
-          </Suspense>
+          </div>
         )}
       </div>
     </main>

@@ -45,7 +45,7 @@ export const { auth, signIn, signOut } = NextAuth({
         if (parsedCredentials.success) {
           if (parsedCredentials.data.role === 'worker') {
             const { email, token } = parsedCredentials.data;
-            if (token !== 'lab1') return null;
+            if (token !== 'hnl') return null;
             if (email) {
               const worker = await getWorkerId(email);
               if (!worker) return null;

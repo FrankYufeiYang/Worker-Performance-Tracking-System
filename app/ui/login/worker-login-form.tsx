@@ -52,7 +52,7 @@ export default function WorkerLogInForm() {
                 id='token'
                 type='text'
                 name='token'
-                defaultValue={'lab1'}
+                defaultValue={'hnl'}
                 placeholder='Enter Token Here (below the QR code)'
                 required
               />

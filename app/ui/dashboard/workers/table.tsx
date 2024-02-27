@@ -45,7 +45,7 @@ export default async function WorkersTable({
                   Name
                 </th>
                 <th scope='col' className='px-3 py-5 font-medium'>
-                  Email (Unique Identifier)
+                  Email (Unique ID)
                 </th>
                 <th scope='col' className='relative py-3 pl-6 pr-3'>
                   <span className='sr-only'>Edit</span>

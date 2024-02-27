@@ -2,8 +2,7 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { Button } from '../../button';
-
+import { Button } from '@mui/material';
 export default function DateInterval({}: {}) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -25,6 +24,22 @@ export default function DateInterval({}: {}) {
     replace(`${pathname}?${params.toString()}`);
   }, 1200);
 
+  function setCurrentMonth() {
+    const now = new Date(); // Current date and time
+    const start = new Date(now.getFullYear(), now.getMonth(), 1); // First day of the current month
+    const end = new Date(now.getFullYear(), now.getMonth() + 1, 0); // Last day of the current month
+    setStartDate(
+      `${start.getFullYear()}-${(start.getMonth() + 1)
+        .toString()
+        .padStart(2, '0')}-${start.getDate().toString().padStart(2, '0')}`
+    );
+    setEndDate(
+      `${end.getFullYear()}-${(end.getMonth() + 1)
+        .toString()
+        .padStart(2, '0')}-${end.getDate().toString().padStart(2, '0')}`
+    );
+  }
+
   return (
     <div className='w-full md:w-1/2 xl:w-1/3 flex flex-col mt-4'>
       <label htmlFor='startDate'>Start Date:</label>
@@ -44,8 +59,15 @@ export default function DateInterval({}: {}) {
         value={endDate}
         onChange={(e) => setEndDate(e.target.value)}
       />
-      <div className='mt-4 flex flex-row-reverse'>
-        <Button onClick={handleSearch}>
+      <div className='mt-4 flex  justify-between'>
+        <Button color='secondary' variant='outlined' onClick={setCurrentMonth}>
+          Current Month
+        </Button>
+        <Button
+          className='bg-blue-500'
+          onClick={handleSearch}
+          variant='contained'
+        >
           Fetch Reports
         </Button>
       </div>

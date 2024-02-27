@@ -1,12 +1,23 @@
+'use client';
 import { Report } from '@/app/lib/definitions';
+import { LinearProgress } from '@mui/material';
+import { DataGrid, GridColDef, GridToolbar } from '@mui/x-data-grid';
 
-export default async function ReportsTable({
-  reports
-}: {
-  reports: Report[] | undefined;
-}) {
+export default async function ReportsTable({ reports }: { reports: Report[] }) {
+  const columns: GridColDef[] = [
+    { field: 'location', headerName: 'Location', flex: 1 },
+    {
+      field: 'date',
+      headerName: 'Time',
+      flex: 1,
+      valueGetter(params) {
+        return params.value.toLocaleString();
+      },
+    },
+    { field: 'name', headerName: 'Worker', flex: 0.6 },
+  ];
   return (
-    <div className=' mt-1 flow-root'>
+    <div className='mt-4 md:mt-20 flow-root'>
       <div className='inline-block min-w-full align-middle'>
         <div className='rounded-lg bg-gray-50 p-2 md:pt-0'>
           <div className='md:hidden'>
@@ -31,41 +42,17 @@ export default async function ReportsTable({
               </div>
             ))}
           </div>
-          <table className='hidden min-w-full text-gray-900 md:table'>
-            <thead className='rounded-lg text-left text-sm font-normal'>
-              <tr>
-                <th scope='col' className='px-4 py-5 font-medium sm:pl-6'>
-                  Name
-                </th>
-                <th scope='col' className='px-3 py-5 font-medium'>
-                  Location
-                </th>
-                <th scope='col' className='px-3 py-5 font-medium'>
-                  Time
-                </th>
-              </tr>
-            </thead>
-            <tbody className='bg-white'>
-              {reports?.map((report) => (
-                <tr
-                  key={
-                    report.date.toISOString() + report.name + report.location
-                  }
-                  className='w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg'
-                >
-                  <td className='whitespace-nowrap py-3 pl-6 pr-3'>
-                    <p>{report.name}</p>
-                  </td>
-                  <td className='whitespace-nowrap px-3 py-3'>
-                    <p>{report.location}</p>
-                  </td>
-                  <td className='whitespace-nowrap px-3 py-3'>
-                    <p>{report.date.toLocaleString()}</p>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className='hidden min-w-full text-gray-900 md:table'>
+            <DataGrid
+              rows={reports}
+              columns={columns}
+              slots={{ toolbar: GridToolbar, loadingOverlay: LinearProgress }}
+              slotProps={{
+                toolbar: { printOptions: { disableToolbarButton: true } },
+              }}
+              getRowId={(row) => row.date + row.name + row.location}
+            ></DataGrid>
+          </div>
         </div>
       </div>
     </div>
