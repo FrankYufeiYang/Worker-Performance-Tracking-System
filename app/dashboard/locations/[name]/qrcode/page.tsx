@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { PrinterIcon } from '@heroicons/react/24/solid';
 
 export default function Page({ params }: { params: { name: string } }) {
-  const name = params.name;
-  const token = 'hnl';
+  const name = decodeURIComponent(params.name);
+  const token = 'HNL';
   const pathname = `${window.location.origin}/location/${name}`;
   const [qrSrc, setQRSrc] = useState('');
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Page({ params }: { params: { name: string } }) {
       setQRSrc(qrCode);
     });
   }, [pathname]);
-  console.log(pathname);
+  console.log(name);
   return (
     <main>
       <Breadcrumbs

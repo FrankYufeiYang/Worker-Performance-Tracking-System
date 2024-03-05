@@ -5,8 +5,8 @@ export default function InvalidLocation() {
   return (
     <main className=' w-screen h-screen flex flex-col items-center justify-center'>
       <h1 className='text-bold md:text-2xl lg:text-4xl mx-4 text-center'>
-        You are Logged in, <br /> please close this page and scan a valid QR
-        code onsite
+        <p>You are Logged in!</p> <br /> please close this page and scan a valid
+        QR code at the working location
       </h1>
       <br />
       <form

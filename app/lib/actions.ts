@@ -12,7 +12,7 @@ export async function workerSignIn(
   formData: FormData
 ) {
   //hard coded token, print out on QR code page
-  if (formData.get('token') === 'hnl') {
+  if (formData.get('token')?.toString().toLowerCase() === 'hnl') {
     formData.append('role', 'worker');
     try {
       await signIn('credentials', formData);

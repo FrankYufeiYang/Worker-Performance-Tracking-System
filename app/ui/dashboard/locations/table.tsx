@@ -1,8 +1,8 @@
 import {
   UpdateLocation,
-  DeleteLocation,
-  CreateLocationQRCodeButton,
+  LocationQRCodeButton,
 } from '@/app/ui/dashboard/locations/buttons';
+import DeleteLocationConfirmation from './deleteLocationConfirmation';
 import { fetchFilteredLocations } from '@/app/lib/data';
 
 export default async function LocationsTable({
@@ -28,9 +28,8 @@ export default async function LocationsTable({
                 <div className='flex w-full items-center justify-between pt-4'>
                   <div className='flex justify-end gap-2'>
                     {/* <UpdateLocation name={location.name} /> */}
-                    <CreateLocationQRCodeButton name={location.name} />
-
-                    <DeleteLocation name={location.name} />
+                    <LocationQRCodeButton name={location.name} />
+                    <DeleteLocationConfirmation name={location.name} />
                   </div>
                 </div>
               </div>
@@ -60,8 +59,8 @@ export default async function LocationsTable({
                   <td className='whitespace-nowrap py-3 pl-6 pr-3'>
                     <div className='flex justify-end gap-3'>
                       {/* <UpdateLocation name={location.name} /> */}
-                      <CreateLocationQRCodeButton name={location.name} />
-                      <DeleteLocation name={location.name} />
+                      <LocationQRCodeButton name={location.name} />
+                      <DeleteLocationConfirmation name={location.name} />
                     </div>
                   </td>
                 </tr>

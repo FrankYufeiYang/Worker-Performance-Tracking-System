@@ -27,7 +27,7 @@ Navigate to [the Demo Version](https://worker-performance-tracking-system.vercel
 
 You can login as a manager and print out QRcode for a location and scan it with your phone
 
-Log in as worker on your phone with this email: example@example123.abc
+Log in as worker on your phone with this email: JohnDoe@example.abc
 
 ## 📖 Usage
 

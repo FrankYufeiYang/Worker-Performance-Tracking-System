@@ -8,13 +8,20 @@ export default function SideNav() {
   return (
     <div className='flex h-full flex-col px-3 py-4 md:px-2'>
       <Link
-        className='mb-2 flex h-20 items-center justify-center rounded-md bg-blue-700 p-4 md:h-40'
+        className='mb-2 flex h-20 items-center justify-between rounded-md bg-blue-700 p-4 md:h-52 md:flex-col '
         href='/'
       >
         <Image
-          className='w-32 text-white md:w-auto'
+          className='w-40 sm:w-44  md:w-auto'
           width={160}
-          height={128}
+          height={80}
+          src={'/logo.svg'}
+          alt='logo'
+        />
+        <Image
+          className='w-32  md:w-auto'
+          width={160}
+          height={80}
           src={'/Outlook-Logos1.png'}
           alt='logo'
         />

@@ -1,7 +1,7 @@
 import {
-  DeleteWorkerButton,
   UpdateWorkerButton,
 } from '@/app/ui/dashboard/locations/buttons';
+import {DeleteWorkerButton} from './delete-worker-button'
 import { fetchFilteredWorkers } from '@/app/lib/data';
 
 export default async function WorkersTable({
@@ -32,7 +32,7 @@ export default async function WorkersTable({
                 <div className='flex w-full items-center justify-between pt-4'>
                   <div className='flex justify-end gap-2'>
                     <UpdateWorkerButton id={worker.id} />
-                    <DeleteWorkerButton id={worker.id} />
+                    <DeleteWorkerButton id={worker.id} name={worker.name} />
                   </div>
                 </div>
               </div>

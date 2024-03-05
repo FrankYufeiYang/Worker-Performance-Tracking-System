@@ -27,17 +27,13 @@ export default async function ReportsTable({ reports }: { reports: Report[] }) {
                 className='mb-2 w-full rounded-md bg-white p-4'
               >
                 <div>
-                  <div className='mb-2 flex items-center'>
-                    <p>{report.name}</p>
+                  <div className='mb-1 flex items-center'>
+                    <p>{report.location}</p>
                   </div>
-                  <p className='text-gray-500'>{report.location}</p>
-                </div>
-                <div className='flex w-full items-center justify-between pt-4'>
-                  <div className='flex justify-end gap-2'>
-                    <p className='text-gray-500'>
-                      {report.date.toLocaleString()}
-                    </p>
-                  </div>
+                  <p className='mb-1 text-gray-600'>{report.date.toLocaleString()}</p>
+                  <p className='text-gray-600'>
+                    {report.name}
+                  </p>
                 </div>
               </div>
             ))}

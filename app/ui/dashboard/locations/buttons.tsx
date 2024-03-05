@@ -1,5 +1,4 @@
-import { deleteLocation, deleteWorker } from '@/app/lib/actions';
-import { PencilIcon, PlusIcon, QrCodeIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { PencilIcon, PlusIcon, QrCodeIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
 export function CreateLocations() {
@@ -25,18 +24,6 @@ export function UpdateLocation({ name }: { name: string }) {
   );
 }
 
-export function DeleteLocation({ name }: { name: string }) {
-  const deleteInvoiceWithId = deleteLocation.bind(null, name);
-
-  return (
-    <form action={deleteInvoiceWithId}>
-      <button className='rounded-md border p-2 hover:bg-gray-100'>
-        <span className='sr-only'>Delete</span>
-        <TrashIcon className='w-4' />
-      </button>
-    </form>
-  );
-}
 
 export function CreateWorkerButton() {
   return (
@@ -61,20 +48,8 @@ export function UpdateWorkerButton({ id }: { id: string }) {
   );
 }
 
-export function DeleteWorkerButton({ id }: { id: string }) {
-  const deleteWorkerWithEmail = deleteWorker.bind(null, id);
 
-  return (
-    <form action={deleteWorkerWithEmail}>
-      <button className='rounded-md border p-2 hover:bg-gray-100'>
-        <span className='sr-only'>Delete</span>
-        <TrashIcon className='w-4' />
-      </button>
-    </form>
-  );
-}
-
-export function CreateLocationQRCodeButton({ name }: { name: string }) {
+export function LocationQRCodeButton({ name }: { name: string }) {
 
   return (
     <Link
