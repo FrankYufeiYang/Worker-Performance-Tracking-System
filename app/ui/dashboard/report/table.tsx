@@ -3,7 +3,7 @@ import { Report } from '@/app/lib/definitions';
 import { LinearProgress } from '@mui/material';
 import { DataGrid, GridColDef, GridToolbar } from '@mui/x-data-grid';
 
-export default async function ReportsTable({ reports }: { reports: Report[] }) {
+export default function ReportsTable({ reports }: { reports: Report[] }) {
   const columns: GridColDef[] = [
     { field: 'location', headerName: 'Location', flex: 1 },
     {
