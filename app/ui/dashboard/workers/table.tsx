@@ -67,7 +67,7 @@ export default async function WorkersTable({
                   <td className='whitespace-nowrap py-3 pl-6 pr-3'>
                     <div className='flex justify-end gap-3'>
                       <UpdateWorkerButton id={worker.id} />
-                      <DeleteWorkerButton id={worker.id} />
+                      <DeleteWorkerButton id={worker.id} name={worker.name} />
                     </div>
                   </td>
                 </tr>
