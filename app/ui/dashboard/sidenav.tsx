@@ -19,7 +19,7 @@ export default function SideNav() {
           alt='logo'
         />
         <Image
-          className='w-32  md:w-auto'
+          className=' w-28  md:w-auto'
           width={160}
           height={80}
           src={'/Outlook-Logos1.png'}

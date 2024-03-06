@@ -61,26 +61,8 @@ export default function LoginForm() {
             </Link>
           </Grid>
         </Grid>
-        <Copyright sx={{ mt: 5 }} />
       </Box>
     </>
   );
 }
 
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant='body2'
-      color='text.secondary'
-      align='center'
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color='inherit' href=''>
-        HNL
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}

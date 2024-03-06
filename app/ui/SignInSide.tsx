@@ -8,6 +8,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import LoginForm from './login/manager-login-form';
+import Link from 'next/link';
 
 export default function SignInSide() {
   return (
@@ -32,7 +33,7 @@ export default function SignInSide() {
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <Box
           sx={{
-            my: 8,
+            my: 4,
             mx: 4,
             display: 'flex',
             flexDirection: 'column',
@@ -61,8 +62,34 @@ export default function SignInSide() {
             Sign in
           </Typography>
           <LoginForm />
+          <Image
+            className='w-40 sm:w-44  md:w-auto mt-12 md:mt-24'
+            width={160}
+            height={80}
+            src={'/crothall.png'}
+            alt='logo'
+          />
+          <Copyright sx={{ mt: 1 }} />
         </Box>
       </Grid>
     </Grid>
+  );
+}
+
+function Copyright(props: any) {
+  return (
+    <Typography
+      variant='body2'
+      color='text.secondary'
+      align='center'
+      {...props}
+    >
+      {'Copyright © '}
+      <Link color='inherit' href=''>
+        Crothall
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
   );
 }

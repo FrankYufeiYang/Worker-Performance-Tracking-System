@@ -31,6 +31,8 @@ export default async function Page({
             </div> */}
             <ReportsTable reports={reports} />
           </div>
+        ) : !reports ? (
+          ''
         ) : (
           <div className='mt-4 md:mt-20 flow-root font-bold'> No Reports </div>
         )}
